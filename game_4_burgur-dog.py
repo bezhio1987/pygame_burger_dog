@@ -25,6 +25,7 @@ PLAYER_BOOST_VELOCITY = 10
 STARTING_BOOST_LEVEL = 100
 STARTER_BURGER_VELOCITY = 3
 BURGER_ACCELERATION = .25
+BUFFER_DISTANCE = 100
 
 score = 0
 burger_points = 0
@@ -107,6 +108,8 @@ while running:
            running = False 
            
 
+    display_surface.fill(BLACK)
+    
     #blit HUD
     display_surface.blit(score_text, score_rect)
     display_surface.blit(lives_text, lives_rect)
@@ -114,6 +117,11 @@ while running:
     display_surface.blit(eaten_text, eaten_rect)
     display_surface.blit(title_text, title_rect)
     display_surface.blit(points_text, points_rect)
+    pygame.draw.line(display_surface, WHITE, (0,100), (WINDOW_WIDTH,100), 3)
+    
+    #blit assets
+    display_surface.blit(player_image, player_rect)
+    display_surface.blit(burger_image, burger_rect)
         
     #update the display
     pygame.display.update()
